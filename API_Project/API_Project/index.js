@@ -15,9 +15,9 @@ app.get("/", async (req, res) => {
     res.render("index.ejs", {
       randomQuote: result.data.quote
     });
-  } catch (error) {
-    console.log(error.response.data);
-    res.status(500);
+   } catch (error) {
+    console.log(error?.response?.data || error?.message || error);
+    res.status(500).send("Unable to retrieve a quote");
   }
 });
 
