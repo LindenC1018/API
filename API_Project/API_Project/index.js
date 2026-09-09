@@ -10,12 +10,14 @@ app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
   try {
-    const result = await axios.get(`${API_URL}`);
-    console.log(result);
+    const result = await axios.get(API_URL, {
+      timeout: 10000
+    });
+
     res.render("index.ejs", {
       randomQuote: result.data.quote
     });
-   } catch (error) {
+  } catch (error) {
     console.log(error?.response?.data || error?.message || error);
     res.status(500).send("Unable to retrieve a quote");
   }
