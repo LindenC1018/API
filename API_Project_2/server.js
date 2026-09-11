@@ -27,8 +27,9 @@ app.get("/", async (req, res) => {
     console.log(response);
     res.render("index.ejs", { posts: response.data });
   } catch (error) {
-    res.status(500).json({ message: "Error fetching records" });
-  }
+  console.error("FRONTEND ERROR:", error);
+  res.status(500).json({ message: "Error fetching records" });
+}
 });
 
 // Route to render the edit page
