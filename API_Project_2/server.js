@@ -3,6 +3,10 @@ import bodyParser from "body-parser";
 import axios from "axios";
 
 const app = express();
+
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
 const port = 4001;
 const API_URL = "http://localhost:4002";
 
