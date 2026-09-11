@@ -13,9 +13,6 @@ const port = 4001;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.set("view engine", "ejs");
-app.set("views", "./views");
-
 const API_URL = "http://localhost:4002";
 
 app.use(express.static("public"));
